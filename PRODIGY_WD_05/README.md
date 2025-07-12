@@ -20,4 +20,4 @@ Whether you're traveling, planning your day, or just curious about the weather a
 
 🚀 Live Demo
 
-🔗 [Live Demo](https://shlok-Solanki.github.io/PRODIGY_WD_05/)
+https://shlok-solanki.github.io/PRODIGY_WD/WeatherApp/
