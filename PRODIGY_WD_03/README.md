@@ -25,4 +25,4 @@ It's part of my internship project for **Prodigy InfoTech - Web Development**.
 3. Open `index.html` in your browser
 
 Or visit the **GitHub Pages demo** (if hosted):  
-👉 [https://shlok-solanki.github.io/PRODIGY_WD/TicTacToe/](https://shlok-solanki.github.io/PRODIGY_WD/TicTacToe/)
+👉 (https://shlok-solanki.github.io/PRODIGY_WD/PRODIGY_WD_03/)
