@@ -1,0 +1,113 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.mode-buttons {
+  margin-bottom: 15px;
+}
+
+.mode-buttons button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #10b981;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.mode-buttons button:hover {
+  background-color: #059669;
+}
+
+.mode-buttons select {
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  background-color: #1e293b;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #f1f5f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scoreboard p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  background-color: #1e293b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.cell:hover {
+  background-color: #334155;
+}
+
+#status {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#resetBtn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#resetBtn:hover {
+  background-color: #2563eb;
+}

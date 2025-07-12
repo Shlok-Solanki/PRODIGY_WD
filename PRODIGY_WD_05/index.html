@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="weather-container">
+        <h1>Weather App</h1>
+        
+        <div class="search-container">
+            <input type="text" id="location-input" placeholder="Enter city or ZIP code">
+            <button id="search-btn">Search</button>
+            <button id="current-location-btn">Use My Location</button>
+        </div>
+        
+        <div class="weather-display">
+            <div class="location-info">
+                <h2 id="city-name">--</h2>
+                <p id="current-date">--</p>
+            </div>
+            
+            <div class="weather-main">
+                <div class="temperature">
+                    <span id="temp-value">--</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+                <div class="weather-icon" id="weather-icon">
+                    <img src="" alt="Weather icon">
+                </div>
+                <p id="weather-description">--</p>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail">
+                    <span>Humidity</span>
+                    <span id="humidity">--%</span>
+                </div>
+                <div class="detail">
+                    <span>Wind</span>
+                    <span id="wind">-- km/h</span>
+                </div>
+                <div class="detail">
+                    <span>Pressure</span>
+                    <span id="pressure">-- hPa</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
