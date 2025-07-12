@@ -32,6 +32,6 @@ As a part of the internship, I was assigned a series of frontend-focused tasks t
 - Play against another person or AI (Computer)
 - Difficulty levels: Easy, Medium, Hard
 - Scoreboard included  
-🔗 [Live Demo](https://shlok-solanki.github.io/PRODIGY_WD/TPRODIGY_WD_03/)
+🔗 [Live Demo](https://shlok-solanki.github.io/PRODIGY_WD/PRODIGY_WD_03/)
 
 ---
