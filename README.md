@@ -49,6 +49,18 @@ As a part of the internship, I was assigned a series of frontend-focused tasks t
 
 ---
 
+### 🔹 Task 4: Stopwatch App (PRODIGY_WD_02)
+- Fully functional stopwatch built with JavaScript
+- Features: Start, Pause, Reset, Lap tracking
+- Keyboard shortcuts supported (Space, L, R)
+- Accessible with ARIA roles
+- Responsive UI design
+ 
+🔗 [Live Demo](https://shlok-solanki.github.io/PRODIGY_WD/PRODIGY_WD_02/)
+
+
+---
+
 ## 📄 License
 
 This repository is for educational and internship purposes only.
