@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intergalactic Empire | Conquer the Stars</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --space-blue: #0b0e23;
+            --star-yellow: #f9d71c;
+            --planet-purple: #6a0dad;
+            --tech-blue: #00b4d8;
+            --neutral-white: #f8f9fa;
+            --accent-red: #e63946;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--space-blue);
+            color: var(--neutral-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* Header Section */
+        header {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(11,14,35,0.9), rgba(11,14,35,0.7)), url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--star-yellow), var(--tech-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--neutral-white);
+            font-weight: 300;
+        }
+        
+        .tagline span {
+            color: var(--star-yellow);
+            font-weight: 600;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--star-yellow);
+            color: var(--space-blue);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--neutral-white);
+            border: 2px solid var(--neutral-white);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background-color: rgba(0,0,0,0.3);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 70px;
+            color: var(--tech-blue);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: rgba(15, 20, 50, 0.7);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(105, 180, 216, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: var(--tech-blue);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--star-yellow);
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--neutral-white);
+        }
+        
+        /* Screenshots Carousel */
+        .screenshots {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, rgba(15, 20, 50, 0.7), var(--space-blue));
+            position: relative;
+        }
+        
+        .carousel {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 2px solid var(--tech-blue);
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5rem;
+        }
+        
+        .carousel-control.prev {
+            left: 20px;
+        }
+        
+        .carousel-control.next {
+            right: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 20px;
+            background-color: var(--space-blue);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: rgba(15, 20, 50, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(105, 180, 216, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--star-yellow);
+            opacity: 0.5;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--tech-blue);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--neutral-white);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: var(--star-yellow);
+            margin-top: 5px;
+        }
+        
+        /* Download Section */
+        .download {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--space-blue), rgba(15, 20, 50, 0.9));
+        }
+        
+        .download-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--neutral-white);
+        }
+        
+        .download-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            color: var(--tech-blue);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .platform-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .platform-btn {
+            display: flex;
+            align-items: center;
+            background: var(--neutral-white);
+            color: var(--space-blue);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 220px;
+        }
+        
+        .platform-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .platform-btn img {
+            width: 30px;
+            margin-right: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            border-top: 1px solid rgba(105, 180, 216, 0.2);
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--star-yellow), var(--tech-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-links {
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            color: var(--neutral-white);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--star-yellow);
+        }
+        
+        .copyright {
+            color: var(--neutral-white);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .platform-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Stars Background -->
+    <div class="stars" id="stars-container"></div>
+    
+    <!-- Header Section -->
+    <header>
+        <h1 class="logo">Intergalactic Empire</h1>
+        <p class="tagline">Conquer the stars. <span>Command your destiny.</span></p>
+        
+        <div class="cta-buttons">
+            <a href="#download" class="btn btn-primary">
+                <i class="fas fa-rocket"></i> Download Now
+            </a>
+            <a href="#features" class="btn btn-secondary">
+                <i class="fas fa-info-circle"></i> Learn More
+            </a>
+        </div>
+    </header>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Galactic Features</h2>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe-americas"></i>
+                </div>
+                <h3 class="feature-title">Planetary Conquest</h3>
+                <p>Build your empire across hundreds of unique planets, each with special resources and strategic advantages.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-space-shuttle"></i>
+                </div>
+                <h3 class="feature-title">Fleet Command</h3>
+                <p>Design and command massive fleets of warships, each customizable with different weapons and defenses.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <h3 class="feature-title">Diplomacy System</h3>
+                <p>Form alliances, negotiate treaties, or declare war on rival empires in a dynamic political landscape.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3 class="feature-title">Tech Research</h3>
+                <p>Discover new technologies across multiple research trees to gain the edge over your competitors.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="feature-title">AI Adversaries</h3>
+                <p>Face intelligent AI opponents that adapt to your strategies and provide endless challenges.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="feature-title">Multiplayer Battles</h3>
+                <p>Compete against players worldwide in massive real-time or turn-based space battles.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Screenshots Carousel -->
+    <section class="screenshots">
+        <h2 class="section-title">Galactic Screenshots</h2>
+        
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-inner">
+                <div class="carousel-item">
+                    <img src="https://www.projectrho.com/public_html/rocket/images/empiremap/zaonMap.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://img.freepik.com/premium-photo/futuristic-extraterrestrial-alien-city-science-fiction-scenery-art-illustration_87538-3043.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtmWiPvOrt0J3W9EhDHv1vtM4F1TipQ49WXw&s">
+                </div>
+            </div>
+            
+            <button class="carousel-control prev" onclick="moveCarousel(-1)">❮</button>
+            <button class="carousel-control next" onclick="moveCarousel(1)">❯</button>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">Commander Testimonials</h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">The most immersive space strategy game I've ever played. The depth of the empire management is unparalleled.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Admiral Zhao</h4>
+                        <p>Space Strategy Veteran</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">I've spent hundreds of hours building my empire and still discover new strategies every day. Absolutely addictive!</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Commander Vasquez</h4>
+                        <p>Mobile Gamer</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">The multiplayer battles are epic! Coordinating with alliance members across the galaxy is an incredible experience.</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Captain Singh</h4>
+                        <p>eSports Competitor</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <h2 class="download-title">Begin Your Galactic Conquest</h2>
+        <p class="download-subtitle">Download Intergalactic Empire today and start building your star empire across multiple platforms.</p>
+        
+        <div class="platform-buttons">
+            <a href="#" class="platform-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+                App Store
+            </a>
+            <a href="#" class="platform-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store">
+                Google Play
+            </a>
+            <a href="#" class="platform-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg" alt="Steam">
+                Steam
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Intergalactic Empire</div>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <p class="copyright">© 2023 Intergalactic Empire. All rights reserved. | <a href="#" style="color: var(--tech-blue);">Privacy Policy</a> | <a href="#" style="color: var(--tech-blue);">Terms of Service</a></p>
+    </footer>
+    
+    <script>
+        // Create stars background
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starsCount = 200;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random properties
+                const size = Math.random() * 3;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = Math.random() * 5 + 5;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // Carousel functionality
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel-inner');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            } else if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            }
+            
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        // Auto-advance carousel
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000);
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            createStars();
+            // Start with first slide centered
+            carousel.style.transform = 'translateX(0)';
+        });
+    </script>
+</body>
+</html>
