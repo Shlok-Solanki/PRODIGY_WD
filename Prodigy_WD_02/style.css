@@ -1,0 +1,142 @@
+:root {
+    --primary-color: #4285f4;
+    --secondary-color: #34a853;
+    --danger-color: #ea4335;
+    --background-color: #f8f9fa;
+    --text-color: #202124;
+    --border-color: #dadce0;
+    --button-hover: rgba(66, 133, 244, 0.1);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 1rem;
+}
+
+.stopwatch-container {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.buttons button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    min-width: 80px;
+}
+
+#startPause {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#startPause:hover:not(:disabled) {
+    background-color: #2d9248;
+    transform: translateY(-1px);
+}
+
+#reset {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+#reset:hover:not(:disabled) {
+    background-color: #d33426;
+    transform: translateY(-1px);
+}
+
+#lap {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#lap:hover:not(:disabled) {
+    background-color: #3367d6;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.laps-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.laps-scroll-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+#laps {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#laps li {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#laps li:last-child {
+    border-bottom: none;
+}
+
+.lap-number {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.lap-time {
+    font-weight: 500;
+}
+
+/* Keyboard focus styles */
+button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
