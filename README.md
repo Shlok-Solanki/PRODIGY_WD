@@ -38,9 +38,14 @@ As a part of the internship, I was assigned a series of frontend-focused tasks t
 
 ### 🔹 Task 3: Game Landing Page – Intergalactic Empire `(/PRODIGY_WD_01)`
 - A responsive, animated landing page for a fictional space strategy game  
-- Features: Starfield animation, feature showcase, carousel, testimonials, and platform links  
+- Features:
+-  Starfield animation
+-  Feature showcase
+-  Carousel
+-  Testimonials
+-  Platform links  
 - 💻 [Live Demo](https://shlok-solanki.github.io/PRODIGY_WD/PRODIGY_WD_01/)  
-- 📂 [Source Code](./PRODIGY_WD_01)
+
 
 ---
 
